@@ -1,0 +1,13 @@
+service: email-processing-app
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-2
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
